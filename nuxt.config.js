@@ -3,19 +3,22 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'cnuc',
+    title: 'CNUC - 中国城建网',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    script: [
+      { src: 'https://hm.baidu.com/hm.js?f27b576fe9cc595c9a59c8a356376924' }
+    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  plugins: ['~plugins/gs.js'],
   /*
   ** Customize the progress bar color
   */
+
   loading: { color: '#3B8070' },
   /*
   ** Build configuration
@@ -24,7 +27,7 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    extend (config, { isDev, isClient }) {
+    extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
